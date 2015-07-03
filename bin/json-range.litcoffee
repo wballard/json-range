@@ -14,15 +14,15 @@
     options = docopt doc
     list = []
 
-    y = Number(options['<y-start>'])
+    yStart = y = Number(options['<y-start>'])
     yStep = Number(options['<y-step>'])
     yEnd = Number(options['<y-end>'])
     while y <= yEnd
-      x = Number(options['<x-start>'])
+      xStart = x = Number(options['<x-start>'])
       xStep = Number(options['<x-step>'])
       xEnd = Number(options['<x-end>'])
       while x <=xEnd
-        list.push {x: x, y: y}
+        list.push {x: x, y: y, xStep: xStep, yStep: yStep, xPrior: Math.max(xStart, x - xStep), yPrior: Math.max(yStart, y - yStep)}
         x += xStep
       y += yStep
 
