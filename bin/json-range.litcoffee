@@ -22,7 +22,17 @@
       xStep = Number(options['<x-step>'])
       xEnd = Number(options['<x-end>'])
       while x <=xEnd
-        list.push {x: x, y: y, xStep: xStep, yStep: yStep, xPrior: Math.max(xStart, x - xStep), yPrior: Math.max(yStart, y - yStep)}
+        list.push
+          x: x
+          xPrior: Math.max(xStart, x - xStep)
+          xStep: xStep
+          xStart: xStart
+          xEnd: xEnd
+          y: y
+          yPrior: Math.max(yStart, y - yStep)
+          yStep: yStep
+          yStart: yStart
+          yEnd: yEnd
         x += xStep
       y += yStep
 
