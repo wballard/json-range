@@ -17,12 +17,14 @@
     yStart = y = Number(options['<y-start>'])
     yStep = Number(options['<y-step>'])
     yEnd = Number(options['<y-end>'])
+    even = false
     while y <= yEnd
       xStart = x = Number(options['<x-start>'])
       xStep = Number(options['<x-step>'])
       xEnd = Number(options['<x-end>'])
       while x <=xEnd
         list.push
+          even: even = not even
           x: x
           xPrior: Math.max(xStart, x - xStep)
           xStep: xStep
